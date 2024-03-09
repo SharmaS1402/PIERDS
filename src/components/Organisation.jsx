@@ -20,7 +20,7 @@ const Organisation = () => {
 }
 
 
-  async function getBalance(contractAddress){
+  async function getBalance(){
     if(typeof(window.ethereum)!=="undefined"){
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const balance = await provider.getBalance(contractAddress);
@@ -56,8 +56,9 @@ async function withdraw(){
 }
 
   const handleButtonClick= async ()=>{
-    const balance = await getBalance('your_contract_address_here');
-    alert('Balance:', balance);
+    const balance = await getBalance(contractAddress);
+    console.log(balance);
+    alert(`Balance : ${balance}`);
    
     
   }
