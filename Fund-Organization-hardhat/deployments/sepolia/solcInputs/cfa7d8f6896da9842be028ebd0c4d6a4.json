@@ -1,0 +1,38 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface AggregatorV3Interface {\n  function decimals() external view returns (uint8);\n\n  function description() external view returns (string memory);\n\n  function version() external view returns (uint256);\n\n  function getRoundData(\n    uint80 _roundId\n  ) external view returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound);\n\n  function latestRoundData()\n    external\n    view\n    returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound);\n}\n"
+    },
+    "contracts/fundme.sol": {
+      "content": "// Get funds from users\n// Withdraw them\n//  Set a minimum funding value in USD\n\n// SPDX-Licence-Identifier MIT    4:30\npragma solidity ^0.8.8;\n\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\ncontract FundMe {\n    uint256 public constant MIN_USD = 50*1e18;\n    address[] public funders;\n    mapping(address => uint256) public addressToAmount;\n    address public immutable i_owner;\n\n    AggregatorV3Interface public priceFeed;\n\n    constructor(address priceFeedAdress){\n        i_owner = msg.sender;\n        priceFeed = AggregatorV3Interface(priceFeedAdress);\n    }\n\n    function fund () public payable {\n        require(getConversionRate(msg.value , priceFeed) >= 50 , \"Didn't send enough \");\n        funders.push(msg.sender);\n        addressToAmount[msg.sender]+=msg.value;\n    }\n\n    function getPrice ( AggregatorV3Interface priceFeed ) public view returns (uint256) {\n        // AggregatorV3Interface pricefeed = AggregatorV3Interface(0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43);\n        (,int256 price,,,) = priceFeed.latestRoundData();\n        //  Eth in terms of usd\n        return uint256( price * 1e10);\n    }\n\n    function getConversionRate (uint256 eth_amount , AggregatorV3Interface priceFeed) public view returns(uint256) {\n        uint256 ethprice = getPrice(priceFeed);\n        return (ethprice * eth_amount) / 1e18 ;\n    }\n    \n    // function getVersion (AggregatorV3Interface priceFeed) public view returns (uint256){\n    //     // AggregatorV3Interface pricefeed = AggregatorV3Interface(0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43);\n    //     return priceFeed.version();\n    // }\n\n    function withdraw() public onlyOwner {\n\n        for(uint256 i=0; i<funders.length; i++){\n            address funder = funders[i];\n            addressToAmount[funder]=0;\n        }\n        funders= new address[](0);      // reset the funders array \n        (bool callSuccess,) = payable(msg.sender).call{value : address(this).balance}(\"\");\n        require(callSuccess,\"call failed\");\n    }\n\n    function getOwner() public view returns (address) {\n        return i_owner;\n    }\n\n    function getFunder(uint256 index) public view returns (address) {\n        return funders[index];\n    }\n\n    modifier onlyOwner(){\n        require(msg.sender == i_owner, \"Sender not Owner\");\n        _;\n    }\n\n    receive() external payable {\n        fund();\n    }\n    fallback() external payable {\n        fund();\n    }\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
