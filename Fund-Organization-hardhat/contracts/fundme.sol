@@ -42,6 +42,10 @@ contract FundMe {
     //     // AggregatorV3Interface pricefeed = AggregatorV3Interface(0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43);
     //     return priceFeed.version();
     // }
+     function sendEth(address payable recipient, uint256 amount) external onlyOwner {
+        require(address(this).balance >= amount, "Insufficient balance in the contract");
+        recipient.transfer(amount);
+    }
 
     function withdraw() public onlyOwner {
 
