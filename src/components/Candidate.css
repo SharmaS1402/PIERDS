@@ -1,0 +1,46 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .candidate {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .candidate-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .candidate-info > div {
+    flex: 1;
+  }
+  
+  .name-age {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .name-age .name {
+    font-weight: bold;
+  }
+  
+  .token-left {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .token-left .label {
+    font-size: 18px;
+  }
+  
+  .token-left .value {
+    font-size: 24px;
+    color: #007bff; /* Change the color as needed */
+  }
+  

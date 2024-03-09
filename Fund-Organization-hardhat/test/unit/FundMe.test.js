@@ -92,5 +92,39 @@ const {developmentChains} = require("../../helper-hardhat-config");
         })
     })
 
+    const { ethers } = require("hardhat");
+const { expect } = require("chai");
+
+describe("EthSender", function () {
+  let ethSender;
+  let owner;
+  let recipient;
+
+  beforeEach(async () => {
+    // Deploy the contract before running test
+    [owner, recipient] = await ethers.getSigners();
+    ethSender = owner;
+    await fundMe.fund({value : sendValue});
+  });
+
+  it("should send ETH to a specified address", async function () {
+    const amountToSend = 1; // Adjust the amount as needed
+
+    const initialRecipientBalance = await ethers.provider.getBalance(recipient.address);
+    const initialContractBalance = await ethers.provider.getBalance(ethSender.address);
+
+    // Call the sendEth function
+    await fundMe.sendEth(recipient.address, amountToSend);
+    await transactionResponse.wait(1);
+
+    const finalRecipientBalance = await ethers.provider.getBalance(recipient.address);
+    const finalContractBalance = await ethers.provider.getBalance(ethSender.address);
+
+    // Perform assertions based on your requirements
+    expect(finalRecipientBalance).to.be.gt(initialRecipientBalance, "Recipient's balance should increase");
+    expect(finalContractBalance).to.be.lt(initialContractBalance, "Contract's balance should decrease");
+  });
+});
+
     
 })

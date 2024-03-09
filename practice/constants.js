@@ -1,6 +1,7 @@
-export const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+export const contractAddress = "0xBabD672251197780CE4506302fcAb5923DF929C2";
 
-export const abi = [{
+export const abi = [
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -175,6 +176,24 @@ export const abi = [{
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "sendEth",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "withdraw",
     "outputs": [],
@@ -184,4 +203,5 @@ export const abi = [{
   {
     "stateMutability": "payable",
     "type": "receive"
-  }]
+  }
+]

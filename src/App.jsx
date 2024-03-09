@@ -2,13 +2,20 @@ import { useState } from "react";
 
 import Form from "./components/form";
 import NameAndButtons from "./components/don";
-function App() {
-  const [count, setCount] = useState(0);
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import NewPage from "./components/NewPage";
+import Organisation from "./components/Organisation";
 
+function App() {
   return (
     <>
-      <Form />
-      {/* <NameAndButtons /> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Form />} />
+          <Route path="/user" element={<NameAndButtons />} />
+          <Route path="/organisation" element={<Organisation />} />
+        </Routes>
+      </Router>
     </>
   );
 }

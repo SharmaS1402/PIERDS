@@ -10,8 +10,10 @@ const NameAndButtons = () => {
   const handleButtonClick = async (buttonName) => {
     if (buttonName === "METAMASK CONNECTED") {
       await connect();
+      alert(`metamask connected`);
     } else if (buttonName === "FUND") {
       await fund();
+      alert(`Fund Successfull `);
     }
   };
 
