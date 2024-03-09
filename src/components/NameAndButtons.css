@@ -1,0 +1,118 @@
+/* NameAndButtons.css */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+.container {
+  margin: 10px;
+  height: 213px;
+  display: flex;
+  justify-content: center;
+}
+
+.mainbutton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 190vh;
+}
+
+.buttons {
+  height: 253px;
+  margin-top: 20px;
+  color: E#2c2626;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  background-color: #196a93;
+  border: 3px solid #ccc;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 4px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  transition: background-color 0.5s;
+  margin: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) Opx 50px 109px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.lab {
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.text {
+  padding: 15px;
+  margin-bottom: 10px;
+  color: black;
+  background-color: white;
+  width: 246px;
+}
+.connect:hover,
+.fund:hover {
+  background-color: #a2c8e2;
+  transform: scaleX(1.012);
+  transform: scaleX(1.012);
+}
+
+/* Add any additional styling you need for buttons or other elements */
+.fund {
+  padding-top: 10px;
+  background-color: #f1f7f3;
+  margin: 10px;
+  color: black;
+  height: 40px;
+  border-radius: 40px;
+}
+.connect {
+  padding-top: 10px;
+  background-color: #f1f7f3;
+  color: black;
+  height: 40px;
+  border-radius: 40px;
+}
+.name {
+  color: #a2c8e2;
+  padding: 20px;
+  text-align: center;
+  font-size: 90px;
+  margin-bottom: 120px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 3px solid #a2c8e2;
+  border-radius: 10px;
+  height: 153px;
+  width: 850px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
+}
+.org {
+  font-size: 56px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  width: 1450px;
+  color: #196a93;
+}
+.org2 {
+  font-size: 46px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  width: 1450px;
+}
