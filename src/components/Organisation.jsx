@@ -67,8 +67,7 @@ const Organisation = () => {
     alert("MONEY SUCCESSFULLY MOVED TO ORGANIZATION WALLET", contactt);
   };
   const handleButtondis = async () => {
-    const contactt = await distribute("distribute");
-    alert(`open camera`);
+    navigate("webcam");
   };
   return (
     <>
