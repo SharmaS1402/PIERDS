@@ -72,11 +72,20 @@ const NameAndButtons = () => {
       <div class="un">
         <div class="org"> !! WELCOME DONATOR!!</div>
       </div>
-      <div className="org2">FUNDING NIT HAMIRPUR</div>
+      <div className="org2">FUNDING UNHCR</div>
       <div className="mainbutton">
         <div className="buttons">
+          <div className="co">
+            <button
+              className="connect"
+              id="connectButton"
+              onClick={() => handleButtonClick("METAMASK CONNECTED")}
+            >
+              {connected ? "CONNECTED" : "CONNECT TO METAMASK"}
+            </button>
+          </div>
           <label className="lab" htmlFor="fundingAmount">
-            Enter the amount to fund:
+            Enter amount in ETH:
           </label>
           <input
             className="text"
@@ -88,13 +97,7 @@ const NameAndButtons = () => {
             value={fundingAmount}
             onChange={(e) => setFundingAmount(e.target.value)}
           ></input>
-          <button
-            className="connect"
-            id="connectButton"
-            onClick={() => handleButtonClick("METAMASK CONNECTED")}
-          >
-            {connected ? "CONNECTED" : "CONNECT TO METAMASK"}
-          </button>
+
           <button
             className="fund"
             id="fundButton"
