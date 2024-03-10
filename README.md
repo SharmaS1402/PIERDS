@@ -61,4 +61,21 @@ We welcome contributions to the PIERD project. Please follow these steps to cont
 3. Commit your changes to the new branch.
 4. Submit a pull request.
 
+
+## Blockchain Codes
+
+To perform testing of the smart contract, use the following commands:
+
+- `yarn hardhat test`: Run tests on the local Hardhat network
+- `yarn hardhat test --network sepolia`: Run tests on the Sepolia testnet
+- `yarn hardhat coverage`: Generate a coverage report
+
+To run a local Hardhat blockchain network, use the command `yarn hardhat node`. To deploy the PIERD smart contract on the Sepolia testnet, use the command `yarn hardhat deploy --network sepolia`.
+
+## Note
+
+Make sure to replace `PIERD` with the actual name of your smart contract and update the `deployments.js` file with the correct network configuration.
+
 ## License
+
+PIERD is released under the [MIT License](LICENSE).
