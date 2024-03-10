@@ -1,11 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./style.css";
 
 const Form = () => {
-  const [selectedType, setSelectedType] = useState("org");
+  const [selectedOption, setSelectedOption] = useState('');
+  const navigate=useNavigate();
 
-  const handleTypeChange = (e) => {
-    setSelectedType(e.target.value);
+  const handleOptionChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
+
+  const handleSignUp = () => {
+    if (selectedOption === 'org') {
+      navigate("organisation");
+    } else {
+      navigate("user");
+    }
   };
 
   return (
@@ -50,7 +60,7 @@ const Form = () => {
                 placeholder="Enter your password"
               />
 
-              {selectedType === "org" && (
+              {selectedOption === "org" && (
                 <>
                   <label htmlFor="pin" className="login-label">
                     Pin
@@ -69,15 +79,14 @@ const Form = () => {
                 <select
                   name="type"
                   id="mypos"
-                  value={selectedType}
-                  onChange={handleTypeChange}
+                  value={selectedOption} onChange={handleOptionChange}
                 >
                   <option value="org">ORGANIZATION</option>
-                  <option value="DON">DONATOR</option>
+                  <option value="donator">DONATOR</option>
                 </select>
               </div>
 
-              <button type="submit" className="login-btn">
+              <button type="submit" className="login-btn" onClick={handleSignUp}>
                 Sign up
               </button>
             </form>
