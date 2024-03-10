@@ -4,6 +4,7 @@ import Form from "./components/form";
 import NameAndButtons from "./components/don";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import NewPage from "./components/NewPage";
+import Distri from "./components/Distri";
 import Organisation from "./components/Organisation";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Form />} />
           <Route path="/user" element={<NameAndButtons />} />
           <Route path="/organisation" element={<Organisation />} />
+          <Route path="/distri" element={<Distri />} />
         </Routes>
       </Router>
     </>

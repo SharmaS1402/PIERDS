@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  width: 190vh;
+  width: 210vh;
 }
 
 .buttons {
@@ -109,7 +109,7 @@
   border: 3px solid #a2c8e2;
   border-radius: 10px;
   height: 94px;
-  width: 855px;
+  width: 956px;
   font-weight: bold;
   display: flex;
   justify-content: center;
