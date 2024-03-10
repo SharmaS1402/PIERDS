@@ -61,9 +61,6 @@ We welcome contributions to the PIERD project. Please follow these steps to cont
 3. Commit your changes to the new branch.
 4. Submit a pull request.
 
-## License
-
-PIERD is released under the [MIT License](LICENSE).
 
 ## Blockchain Codes
 
@@ -78,3 +75,7 @@ To run a local Hardhat blockchain network, use the command `yarn hardhat node`. 
 ## Note
 
 Make sure to replace `PIERD` with the actual name of your smart contract and update the `deployments.js` file with the correct network configuration.
+
+## License
+
+PIERD is released under the [MIT License](LICENSE).
