@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import WebcamCapture from "./components/WebcamCapture";
 import Form from "./components/form";
 import NameAndButtons from "./components/don";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
@@ -14,6 +15,8 @@ function App() {
           <Route path="/" element={<Form />} />
           <Route path="/user" element={<NameAndButtons />} />
           <Route path="/organisation" element={<Organisation />} />
+          <Route path="/webcam" element={<WebcamCapture/>} />
+          
         </Routes>
       </Router>
     </>
