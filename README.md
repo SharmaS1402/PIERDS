@@ -62,5 +62,3 @@ We welcome contributions to the PIERD project. Please follow these steps to cont
 4. Submit a pull request.
 
 ## License
-
-PIERD is released under the [MIT License](LICENSE).
