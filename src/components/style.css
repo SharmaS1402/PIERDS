@@ -32,17 +32,22 @@
   padding: 50px;
   margin: 20px;
 
-  background: url("components/back.jpg");
+  background-image: url("src/assets/60241.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 
 .login-box {
-  width: 300px;
+  height: 356;
+  width: 400px;
   color: black;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
+  opacity: 0.75em;
 }
 
 .login-header {
@@ -79,17 +84,52 @@
   font-size: 1rem;
   cursor: pointer;
 }
+.login-btn:hover {
+  font-weight: bold;
+}
 .ka {
+  display: flex;
   align-content: center;
   justify-content: center;
-  margin-left: 550px;
+  /* margin-left: 550px; */
   margin-top: 130px;
 }
 .sel {
   padding: 10px;
+  display: flex;
+  gap: 30px;
 }
 h1 {
   color: #196a93;
   align-items: center;
-  padding-left: 550px;
+  padding-left: 350px;
+  font-size: 60px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.bo {
+  background-image: url("src/assets/60241.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+.container2 {
+  margin: 10px;
+  margin-right: 450px;
+}
+.name2 {
+  color: #a2c8e2;
+  padding: 10px;
+  text-align: center;
+  font-size: 90px;
+  margin-bottom: 90px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 3px solid #a2c8e2;
+  border-radius: 10px;
+  height: 94px;
+  width: 500px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
 }
