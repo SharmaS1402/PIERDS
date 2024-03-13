@@ -114,7 +114,7 @@ describe("EthSender", function () {
     const initialContractBalance = await ethers.provider.getBalance(ethSender.address);
 
     // Call the sendEth function
-    await fundMe.sendEth(recipient.address, amountToSend);
+    const transactionResponse = await fundMe.sendEth(recipient.address, amountToSend);
     await transactionResponse.wait(1);
 
     const finalRecipientBalance = await ethers.provider.getBalance(recipient.address);
